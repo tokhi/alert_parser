@@ -1,16 +1,11 @@
-$(document).ready(function(){
-    $.ajax({
-        type: "GET",
-        url: "books.xml",
-        dataType: "xml",
-        success: function(xml) {
-            $(xml).find('book').each(function(){
-               // var id = $(this).attr('id');
-                var title = $(this).find('title').text();
-                var description = $(this).find('description').text();
-                $('<div class="items" id="link_'+id+'"></div>').html('<a href="#">'+title+'</a>').appendTo('#page-wrap');
-                
-            });
-        }
-    });
-});
+
+var request = new XMLHttpRequest();
+//var url = "http://www.google.com/alerts/feeds/01662123773360489091/17860385030804394525"
+request.open('GET', 'xml/data.xml');
+request.onreadystatechange = function() {
+    if ((request.readyState===4) && (request.status===200)) {
+        console.log(request);
+        document.writeln(request.responseText);
+    }
+}
+request.send();
