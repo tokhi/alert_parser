@@ -13,6 +13,8 @@ get '/cross_origin' do
   "This is available to cross-origin javascripts"
 end
 
+# rake cron job:  http://stackoverflow.com/questions/3875704/how-to-run-a-cron-job-in-heroku-with-a-sinatra-app
+
 Sinatra::register Gon::Sinatra
 # set :allow_origin, :any
 # set :allow_methods, [:get, :post, :options]
