@@ -1,12 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<title>JavaScript AJAX</title>
-	<%= include_gon %>
-</head>
-<body>
-<script src="js/basic_parser.js"></script>
-<div id="update"></div>
-</body>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+        <title>Afghanistan Real Time News</title>
+        <meta name="generator" content="Bootply" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+        
+        <!--[if lt IE 9]>
+          <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <!-- @begin facebook meta tags -->
+    <meta property="og:title" content="Afghanistan Real Time News"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:image" content=""/>
+    <meta property="og:site_name" content="http://afghanistan.herokuapp.com/"/>
+    <meta property="fb:app_id" content="316643035142089"/>
+    <meta property="og:description" content="Afghanistan Real Time news"/>
+
+
+
+
+
+
+
+
+
+
+        <!-- CSS code from Bootply.com editor -->
+        
+        <style type="text/css">
+            body {
+  padding-top: 70px;
+}
+.wrap {
+  margin-left:0;
+  margin-right:0;
+}
+
+        </style>
+    </head>
+    
+    <!-- HTML code from Bootply.com editor -->
+    
+    <body  >
+        
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" rel="home" href="#">Real Time News About Afghanistan!</a>
+	</div>
+	
+	<div class="collapse navbar-collapse">
+		
+		<ul class="nav navbar-nav">
+			<li><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+			<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+		</ul>
+		
+		<div class="col-sm-3 col-md-3 pull-right">
+		<form class="navbar-form" role="search">
+		<div class="input-group">
+			<input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+			<div class="input-group-btn">
+				<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+			</div>
+		</div>
+		</form>
+		</div>
+		
+	</div>
+</div>
+
+
+<div class="row wrap">
+  
+  <!--left-->
+  <div class="col-sm-3">
+    
+     <div class="row">
+      <div class="col-xs-12">
+        <h2>Side</h2>
+    	<div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+            Aliquam in felis sit amet augue.</div>
+        </div>
+        <hr>
+        <div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Content here..</div>
+        </div>
+        <hr>
+        <div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+            Aliquam in felis sit amet augue.</div>
+        </div>
+        <hr>
+        <div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Content here..</div>
+        </div>
+        <hr>
+	   </div>
+      </div>
+    	
+    
+  </div><!--/left-->
+  <script src="js/basic_parser.js"></script>
+  <!--center-->
+  <div class="col-sm-6">
+  	<div id="center_alerts"></div>
+  </div>
+  <!--/center-->
+  
+  
+  <!--right-->
+  <div class="col-sm-3">
+    
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>Side</h2>
+    	<div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+            Aliquam in felis sit amet augue.</div>
+        </div>
+        <hr>
+        <div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Content here..</div>
+        </div>
+        <hr>
+        <div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+            Aliquam in felis sit amet augue.</div>
+        </div>
+        <hr>
+        <div class="panel panel-default">
+         	<div class="panel-heading">Title</div>
+         	<div class="panel-body">Content here..</div>
+        </div>
+        <hr>
+	   </div>
+      </div>
+    
+  </div><!--/right-->
+  
+  <hr>
+  
+</div><!-- /.container -->
+
+        
+        <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+
+
+        <script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+
+
+
+        <script type="text/javascript">
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "//connect.facebook.net/${local}/all.js#xfbml=1&appId=316643035142089";
+      fjs.parentNode.insertBefore(js, fjs);
+    }
+    (document, 'script', 'facebook-jssdk'));
+    </script>
+        
+        <!-- JavaScript jQuery code from Bootply.com editor -->
+        
+        <script type='text/javascript'>
+        
+        $(document).ready(function() {
+        
+            
+        
+        });
+        
+        </script>
+        
+    </body>
 </html>
