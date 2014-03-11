@@ -9,12 +9,13 @@ request.onreadystatechange = function() {
         if (request.status === 200) {
             var items = request.responseXML.getElementsByTagName("entry");
             var output = '';
+            var url = '';
             for (var i = 1; i < items.length; i++) {
+                url = items[i].getElementsByTagName("link")[0].getAttribute("href").replace(google_url, '');
                 output += '<div class="row"><div class="col-xs-12"><h4><a href=' +
-                    items[i].getElementsByTagName("link")[0].getAttribute("href") + ' target="_blank">' + items[i].getElementsByTagName("title")[0].firstChild.nodeValue + '</a></h4><p>' +
+                    url + ' target="_blank">' + items[i].getElementsByTagName("title")[0].firstChild.nodeValue + '</a></h4><p>' +
                     items[i].getElementsByTagName("content")[0].firstChild.nodeValue +
-                    '</p></a><p class="pull-right"><span class="label label-default">Afg</span></p><ul class="list-inline"><li><div class="container"><div class="facebook-container" style="margin-left: 200px"><div class="fb-like" data-href=' +
-                    items[i].getElementsByTagName("link")[0].getAttribute("href").replace(google_url, '') + ' data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div></div></div></li></ul></div></div><hr>';
+                    '</p><a href=' + url + ' target="_blank"><p class="lead"><button class="btn btn-default">Read More</button></p></a><p class="pull-right"><span class="label label-default">Afg</span></p><ul class="list-inline"><li><div class="fb-like" data-href="#" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div></li></ul></div></div><hr>';
             }
             output += '</div></div><hr>';
             // document.writeln(request.responseText);
