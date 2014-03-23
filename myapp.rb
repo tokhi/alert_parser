@@ -3,6 +3,8 @@ require 'sinatra'
 require 'sinatra/cross_origin'
 require 'open-uri'
 require 'gon-sinatra'
+require 'nokogiri'
+require 'pp'
 
 configure do
   enable :cross_origin
@@ -37,10 +39,37 @@ get '/' do
     File.open("public/xml/data.xml", "w") { |io|  
     	io.write(@data)
     }
+   @doc = Nokogiri::XML(open(@url))
+   
 
-  erb :parser
+  erb :index
 end
+
+def parse_alert(url)
+  # puts "-->URL:  #{url}"
+  @doc = nil
+  begin 
+    @doc = Nokogiri::XML(open(url))
+  rescue  
+    puts "exctpion: "
+  end
+  # # --> BEGIN PARSING
+  # doc.search("entry").each do |node|
+  #   title = node.search("title")
+  #   link = node.search("link")
+  #   content = node.search("content")
+
+  #   puts "title: #{title.text}"
+  # end # ~> END xpath
+end
+
 
 get '/index' do
  erb :index
+end
+# create a fake url to render user to the article page.
+get '/render' do
+  puts "path triggered"
+  puts "params: #{params["link"]}"
+ redirect '/'
 end

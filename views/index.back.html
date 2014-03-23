@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
-        <title>Afghanistan Real Time News</title>
+        <title>Bootply.com - Portal Template</title>
         <meta name="generator" content="Bootply" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
@@ -10,14 +10,6 @@
         <!--[if lt IE 9]>
           <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-
-        <!-- @begin facebook meta tags -->
-    <meta property="og:title" content="Real Time News"/>
-    <meta property="og:type" content="article"/>
-    <meta property="og:image" content="/img/rtnews.jpg"/>
-    <meta property="og:site_name" content="http://rtnews.herokuapp.com/"/>
-    <meta property="fb:app_id" content="1477394625806542"/>
-    <meta property="og:description" content="Afghanistan Real Time news"/>
 
 
 
@@ -55,7 +47,7 @@
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" rel="home" href="#">Real Time News About Afghanistan!</a>
+		<a class="navbar-brand" rel="home" href="#">Brand</a>
 	</div>
 	
 	<div class="collapse navbar-collapse">
@@ -129,12 +121,29 @@
     	
     
   </div><!--/left-->
-  <script src="js/basic_parser.js"></script>
+  
   <!--center-->
   <div class="col-sm-6">
-  	<div id="center_alerts"></div>
-  </div>
-  <!--/center-->
+    <% @doc.search("entry").each do |node| %>
+    <div class="row">
+      <div class="col-xs-12">
+        <a href="<%= node.search("link").text %>">
+        <h4><%= node.search("title").text %></h4>
+      </a>
+        <p><%= node.search("content").text %></p>
+        <p class="lead"><button class="btn btn-default">Read More</button></p>
+        <p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
+        <ul class="list-inline"><li><a href="#">2 Days Ago</a></li><li><a href="#"><i class="glyphicon glyphicon-comment"></i> 2 Comments</a></li><li><a href="#"><i class="glyphicon glyphicon-share"></i> 14 Shares</a></li></ul>
+      </div>
+    </div>
+    <hr>
+    <% end %>
+    
+    <hr>
+    
+    
+    
+  </div><!--/center-->
   
   
   <!--right-->
@@ -175,7 +184,6 @@
   <hr>
   
 </div><!-- /.container -->
-
         
         <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 
@@ -185,17 +193,7 @@
 
 
 
-        <script type="text/javascript">
-    (function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "//connect.facebook.net/${local}/all.js#xfbml=1&appId=316643035142089";
-      fjs.parentNode.insertBefore(js, fjs);
-    }
-    (document, 'script', 'facebook-jssdk'));
-    </script>
+
         
         <!-- JavaScript jQuery code from Bootply.com editor -->
         

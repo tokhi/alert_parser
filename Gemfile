@@ -3,3 +3,4 @@ source 'https://rubygems.org'
 gem "sinatra"
 gem "gon-sinatra"
 gem "sinatra-cross_origin", "~> 0.3.1"
+gem 'nokogiri'
