@@ -107,12 +107,21 @@ def check_hash(title,link)
 end
 
 def post_to_page(title, link)
+  link = "http://rtnews.herokuapp.com/render?link="+link
+  puts "the link: #{link}"
   oauth_access_token = "CAAGNaXtMjiUBAFuWwhIAZABMEQFeuZAhDCGZAjXio5Q52ZCyCFFdoIFjlRS6oPMCc6ZA7hlZB09LZBJQblZBo2xtrHXSiThOBRZBJxNowFaXCr4z7q72BINW817w6Y518gFDZBXLbvXkTSZAJWXXpfMNw0spd7Q1GMI474kF3yyTefZArRJ63FHP9446tJ7JOGAAhW4ZD"
   @graph = Koala::Facebook::API.new(oauth_access_token)
-  title = title.sub(/<\/?[^>]*>/, "")
-  title = title.sub("<b>", "")
-  title = title.sub("</b>", "")
+  # strip html tags
+  title = title.gsub(/<\/?[^>]*>/, "")
+  title = title.gsub("<b>", "")
+  title = title.gsub("</b>", "")
   @graph.put_object(1477394625806542, "feed", :message => title,:link=>link)
 
+end
+
+def validate_google_redirect_url(link)
+  link = link.gsub("https://www.google.com/url?q=","")
+  link = link.split("&ct=ga&cd=")[0]
+  link
 end
 
