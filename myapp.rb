@@ -1,25 +1,25 @@
 # myapp.rb
 require 'sinatra'
-require 'sinatra/cross_origin'
+#require 'sinatra/cross_origin'
 require 'open-uri'
 require 'gon-sinatra'
 require 'nokogiri'
-require 'pp'
+#require 'pp'
 require 'digest/sha1'
 require 'koala'
 
-configure do
-  enable :cross_origin
-end
+# configure do
+#   enable :cross_origin
+# end
 
-get '/cross_origin' do
-  cross_origin
-  "This is available to cross-origin javascripts"
-end
+# get '/cross_origin' do
+#   cross_origin
+#   "This is available to cross-origin javascripts"
+# end
 
 # rake cron job:  http://stackoverflow.com/questions/3875704/how-to-run-a-cron-job-in-heroku-with-a-sinatra-app
 
-Sinatra::register Gon::Sinatra
+# Sinatra::register Gon::Sinatra
 # set :allow_origin, :any
 # set :allow_methods, [:get, :post, :options]
 # set :allow_credentials, true
@@ -35,14 +35,14 @@ get '/index' do
   #   :allow_credentials => false,
   #   :max_age => "60"
     @url = "http://www.google.com/alerts/feeds/01662123773360489091/17860385030804394525"
-    @data  = open('http://www.google.com/alerts/feeds/01662123773360489091/17860385030804394525') {|f| f.read }
+     @data  = open('http://www.google.com/alerts/feeds/01662123773360489091/17860385030804394525') {|f| f.read }
 
-    gon.url = @url
-    gon.data = @data
-    File.open("public/xml/data.xml", "w") { |io|  
-    	io.write(@data)
-    }
-   @doc = Nokogiri::XML(open(@url))
+   #  gon.url = @url
+   #  gon.data = @data
+   #  File.open("public/xml/data.xml", "w") { |io|  
+   #  	io.write(@data)
+   #  }
+    @doc = Nokogiri::XML(open(@url))
    
 
   erb :index
@@ -108,7 +108,7 @@ end
 
 def post_to_page(title, link)
   link = "http://rtnews.herokuapp.com/render?link="+link
-  puts "the link: #{link}"
+  #puts "the link: #{link}"
   oauth_access_token = "CAAGNaXtMjiUBAFuWwhIAZABMEQFeuZAhDCGZAjXio5Q52ZCyCFFdoIFjlRS6oPMCc6ZA7hlZB09LZBJQblZBo2xtrHXSiThOBRZBJxNowFaXCr4z7q72BINW817w6Y518gFDZBXLbvXkTSZAJWXXpfMNw0spd7Q1GMI474kF3yyTefZArRJ63FHP9446tJ7JOGAAhW4ZD"
   @graph = Koala::Facebook::API.new(oauth_access_token)
   # strip html tags
