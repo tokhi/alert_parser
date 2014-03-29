@@ -129,6 +129,7 @@
       <div class="col-xs-12">
         <a href="<%= node.search("link").text %>">
         <h4><%= node.search("title").text %></h4>
+        <% foo(node.search("title").text) %>
       </a>
         <p><%= node.search("content").text %></p>
         <p class="lead"><button class="btn btn-default">Read More</button></p>

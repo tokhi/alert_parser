@@ -2,5 +2,8 @@ source 'https://rubygems.org'
 # invoke app: bundle exec ruby myapp.rb
 gem "sinatra"
 gem "gon-sinatra"
-gem "sinatra-cross_origin", "~> 0.3.1"
 gem 'nokogiri'
+gem 'heroku'
+gem 'sinatra'
+gem 'thin'
+gem "koala", "~> 1.8.0rc1"
