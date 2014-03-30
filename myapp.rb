@@ -2,7 +2,7 @@
 require 'sinatra'
 #require 'sinatra/cross_origin'
 require 'open-uri'
-require 'gon-sinatra'
+#require 'gon-sinatra'
 require 'nokogiri'
 #require 'pp'
 require 'digest/sha1'
