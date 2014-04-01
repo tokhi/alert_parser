@@ -51,6 +51,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  daemons
   gon-sinatra
   heroku
   koala (~> 1.8.0rc1)

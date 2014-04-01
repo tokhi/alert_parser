@@ -2,6 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'digest/sha1'
 require 'koala'
+require 'daemons'
 
 def check_hash(title,link)
   
