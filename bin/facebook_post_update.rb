@@ -6,7 +6,7 @@ require 'daemons'
 
 def check_hash(title,link)
   
-  $alert_hashes = "../public/xml/hash.log"
+  $alert_hashes = "hash.log"
   begin
     hashes_array = File.open($alert_hashes, "r").read().split("\n")
   rescue
