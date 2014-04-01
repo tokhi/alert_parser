@@ -6,7 +6,7 @@ require 'daemons'
 
 def check_hash(title,link)
   
-  $alert_hashes = "public/xml/hash.log"
+  $alert_hashes = "../public/xml/hash.log"
   begin
     hashes_array = File.open($alert_hashes, "r").read().split("\n")
   rescue
@@ -41,7 +41,7 @@ def post_to_page(title, link)
   title = title.gsub("<b>", "")
   title = title.gsub("</b>", "")
   puts "try to post ..."
- # @graph.put_object(1477394625806542, "feed", :message => title,:link=>link)
+ @graph.put_object(1477394625806542, "feed", :message => title,:link=>link)
 
 end
 
