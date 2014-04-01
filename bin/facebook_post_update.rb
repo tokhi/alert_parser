@@ -60,8 +60,21 @@ def parse_alert(url)
   end # ~> END xpath
 end
 
+seconds = 3600 # seconds
+options = {
+  :multiple   => false,
+  :ontop      => false,
+  :backtrace  => true,
+  :log_output => true,
+  :monitor    => false
+}
 
-@url = "http://www.google.com/alerts/feeds/01662123773360489091/17860385030804394525"
-parse_alert(@url)
+Daemons.run_proc('fb_update', {:ontop => true}) do
+    @url = "http://www.google.com/alerts/feeds/01662123773360489091/17860385030804394525"
+	parse_alert(@url)
+    sleep(seconds)
+end
+
+
 
 
