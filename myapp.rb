@@ -35,7 +35,7 @@ get '/index' do
   #   :allow_credentials => false,
   #   :max_age => "60"
     @url = "http://www.google.com/alerts/feeds/01662123773360489091/17860385030804394525"
-     @data  = open('http://www.google.com/alerts/feeds/01662123773360489091/17860385030804394525') {|f| f.read }
+     # @data  = open('http://www.google.com/alerts/feeds/01662123773360489091/17860385030804394525') {|f| f.read }
 
    #  gon.url = @url
    #  gon.data = @data
@@ -115,7 +115,7 @@ def post_to_page(title, link)
   title = title.gsub(/<\/?[^>]*>/, "")
   title = title.gsub("<b>", "")
   title = title.gsub("</b>", "")
-  @graph.put_object(1477394625806542, "feed", :message => title,:link=>link)
+  #@graph.put_object(1477394625806542, "feed", :message => title,:link=>link)
 
 end
 
