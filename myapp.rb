@@ -97,9 +97,13 @@ def validate_google_redirect_url(link)
 end
 
 def url_encode(url)
-  link = EncodeDecode.simple_encode(url)
+  link = Base64.encode64(url)
 end
 
 def url_decode(url)
-  link = EncodeDecode.simple_decode(url)
+  unless url.include? "http" then
+    link = Base64.encode64(url)
+  else
+    url
+  end
   end
