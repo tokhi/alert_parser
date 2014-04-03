@@ -46,8 +46,6 @@ get '/' do
 end
 # create a fake url to render user to the article page.
 get '/render' do
-  puts "path triggered"
-  puts "params: #{params["link"]}"
   $remote_url = url_decode(params["link"])
   redirect '/index'
 end
@@ -99,13 +97,9 @@ def validate_google_redirect_url(link)
 end
 
 def url_encode(url)
-   link = EncodeDecode.encode(url)
-  puts "e ~> #{link}"
-  link
+  link = EncodeDecode.simple_encode(url)
 end
 
 def url_decode(url)
-  link = EncodeDecode.decode(url)
-  puts "d~> #{link}"
-  link
+  link = EncodeDecode.simple_decode(url)
   end
