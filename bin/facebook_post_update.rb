@@ -5,6 +5,7 @@ require 'koala'
 require 'daemons'
 require './url_encode_decode'
 include EncodeDecode
+require "base64"
 
 def check_hash(title,link)
 
@@ -36,7 +37,7 @@ end
 def post_to_page(title, link)
   link = validate_google_redirect_url(link)
   puts "original: #{link}"
-  rlink = EncodeDecode.simple_encode(link)
+  rlink = Base64.encode64(link)
   puts "encoded: #{rlink}"
   link = "http://rtnews.herokuapp.com/render?link="+rlink
   rlink = nil
@@ -48,7 +49,7 @@ def post_to_page(title, link)
   title = title.gsub("<b>", "")
   title = title.gsub("</b>", "")
   puts "try to post ..."
-  @graph.put_object(1477394625806542, "feed", :message => title,:link=>link)
+  #@graph.put_object(1477394625806542, "feed", :message => title,:link=>link)
 
 end
 

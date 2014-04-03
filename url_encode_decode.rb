@@ -67,6 +67,7 @@ module EncodeDecode
   #   url
   # end # @end def
 
+
   def self.simple_encode(url)
   	url = [url].pack("u")
   end

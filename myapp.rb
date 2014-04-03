@@ -9,6 +9,7 @@ require 'digest/sha1'
 require 'koala'
 require './url_encode_decode'
 include EncodeDecode
+require "base64"
 
 $remote_url = nil
 $alert_hashes = "public/xml/hash.log"
@@ -102,7 +103,7 @@ end
 
 def url_decode(url)
   unless url.include? "http" then
-    link = Base64.encode64(url)
+    link = Base64.decode64(url)
   else
     url
   end
