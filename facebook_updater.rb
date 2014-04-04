@@ -48,6 +48,8 @@ module SocialMedia
     title = title.gsub(/<\/?[^>]*>/, "")
     title = title.gsub("<b>", "")
     title = title.gsub("</b>", "")
+    title = title.gsub("&#39", "")
+   
 
     if title.include?("Afghanistan") && title.include?("Elections")
       title = title.gsub("Elections","#AfghanElections")
@@ -57,11 +59,11 @@ module SocialMedia
     end
     title = title.gsub("Afghan ","#Afghan ")
     puts "try to post ..."
-    @graph.put_object(1477394625806542, "feed", :message => title,:link=>link)
+    #@graph.put_object(1477394625806542, "feed", :message => title,:link=>link)
 
   end
 
-  def validate_google_redirect_url(link)
+  def self.validate_google_redirect_url(link)
     link = link.gsub("https://www.google.com/url?q=","")
     link = link.split("&ct=ga&cd=")[0]
   end

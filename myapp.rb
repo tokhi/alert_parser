@@ -17,7 +17,7 @@ $alert_hashes = "public/xml/hash.log"
 
 scheduler = Rufus::Scheduler.new
 
-scheduler.every '1h' do
+scheduler.in '60d' do
   update_facebook
 end
 
