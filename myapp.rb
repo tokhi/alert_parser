@@ -7,18 +7,24 @@ require 'nokogiri'
 #require 'pp'
 require 'digest/sha1'
 require 'koala'
-require './url_encode_decode'
-include EncodeDecode
+require './facebook_updater.rb'
+include SocialMedia
 require "base64"
+require 'rufus-scheduler'
 
 $remote_url = nil
 $alert_hashes = "public/xml/hash.log"
 
+scheduler = Rufus::Scheduler.new
+
+scheduler.every '1h' do
+  update_facebook
+end
+
+
 get '/index' do
   @url = "http://www.google.com/alerts/feeds/01662123773360489091/17860385030804394525"
   @doc = Nokogiri::XML(open(@url))
-
-
   erb :index
 end
 
@@ -30,14 +36,7 @@ def parse_alert(url)
   rescue
     puts "exctpion: "
   end
-  # # --> BEGIN PARSING
-  # doc.search("entry").each do |node|
-  #   title = node.search("title")
-  #   link = node.search("link")
-  #   content = node.search("content")
-
-  #   puts "title: #{title.text}"
-  # end # ~> END xpath
+ 
 end
 
 
@@ -107,4 +106,9 @@ def url_decode(url)
   else
     url
   end
-  end
+end
+
+def update_facebook
+  url = "http://www.google.com/alerts/feeds/01662123773360489091/17860385030804394525"
+  SocialMedia.parse_alert(url)
+end
