@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.6)
+    atomic (1.1.16)
     daemons (1.1.9)
     eventmachine (1.0.3)
     excon (0.32.1)
@@ -37,6 +38,8 @@ GEM
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rubyzip (1.1.2)
+    rufus-scheduler (3.0.7)
+      tzinfo
     sinatra (1.4.4)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -45,7 +48,11 @@ GEM
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
       rack (>= 1.0.0)
+    thread_safe (0.3.1)
+      atomic (>= 1.1.7, < 2)
     tilt (1.4.1)
+    tzinfo (1.1.0)
+      thread_safe (~> 0.1)
 
 PLATFORMS
   ruby
@@ -56,5 +63,6 @@ DEPENDENCIES
   heroku
   koala (~> 1.8.0rc1)
   nokogiri
+  rufus-scheduler
   sinatra
   thin

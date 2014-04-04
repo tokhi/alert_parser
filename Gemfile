@@ -8,3 +8,4 @@ gem 'sinatra'
 gem 'thin'
 gem "koala", "~> 1.8.0rc1"
 gem "daemons"
+gem "rufus-scheduler"
