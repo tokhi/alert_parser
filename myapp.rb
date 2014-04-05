@@ -1,4 +1,5 @@
 # myapp.rb
+require 'rubygems'
 require 'sinatra'
 #require 'sinatra/cross_origin'
 require 'open-uri'
@@ -17,10 +18,11 @@ $alert_hashes = "public/xml/hash.log"
 
 scheduler = Rufus::Scheduler.new
 
-scheduler.in '60d' do
+scheduler.every '30m' do
   update_facebook
-end
 
+end
+# scheduler.join
 
 get '/index' do
   @url = "http://www.google.com/alerts/feeds/01662123773360489091/17860385030804394525"
@@ -36,7 +38,7 @@ def parse_alert(url)
   rescue
     puts "exctpion: "
   end
- 
+
 end
 
 

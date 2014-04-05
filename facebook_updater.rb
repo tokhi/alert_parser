@@ -6,6 +6,7 @@ require 'daemons'
 require "base64"
 
 module SocialMedia
+  @keywords = {"Kabul"=>"#Kabul", "usa"=>"#USA", "USA"=>"#USA", "USArmy"=> "#USArmy", "U.S"=>"#USA", "BBC"=>"#BBC", "CNN"=>"#CNN"}
 
   def self.check_hash(title,link)
 
@@ -49,15 +50,22 @@ module SocialMedia
     title = title.gsub("<b>", "")
     title = title.gsub("</b>", "")
     title = title.gsub("&#39", "")
-   
+
+    @keywords.each do |k,v|
+      if title.include?(k)
+        title = title.gsub(k,v)
+      end
+    end   
 
     if title.include?("Afghanistan") && title.include?("Elections")
       title = title.gsub("Elections","#AfghanElections")
+      title << "- #AFG"
     elsif title.include?("Afghanistan") || title.include?("Elections")
       title = title.gsub("elections","#AfghanElections")
       title = title.gsub("Afghanistan","#Afghanistan")
     end
     title = title.gsub("Afghan ","#Afghan ")
+    title << " - #rtnewsAfg"
     puts "try to post ..."
     @graph.put_object(1477394625806542, "feed", :message => title,:link=>link)
 
