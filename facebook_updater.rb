@@ -59,7 +59,7 @@ module SocialMedia
     end
     title = title.gsub("Afghan ","#Afghan ")
     puts "try to post ..."
-    #@graph.put_object(1477394625806542, "feed", :message => title,:link=>link)
+    @graph.put_object(1477394625806542, "feed", :message => title,:link=>link)
 
   end
 
