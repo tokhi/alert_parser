@@ -6,7 +6,7 @@ require 'daemons'
 require "base64"
 
 module SocialMedia
-  @keywords = {"Kabul"=>"#Kabul", "usa"=>"#USA", "USA"=>"#USA", "USArmy"=> "#USArmy", "U.S"=>"#USA", "BBC"=>"#BBC", "CNN"=>"#CNN"}
+  @keywords = {"Kabul"=>"#Kabul", "usa"=>"#USA", "USA"=>"#USA", "USArmy"=> "#USArmy", "U.S"=>"#USA", "BBC"=>"#BBC", "CNN"=>"#CNN", "news"=>"#News"}
 
   def self.check_hash(title,link)
 
